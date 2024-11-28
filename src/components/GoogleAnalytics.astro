@@ -1,12 +1,12 @@
 ---
-const analyticsId = 'G-XXXXXXXXXX'; // Replace with your GA4 ID
+const GA_ID = 'G-036834H7Q5';
 ---
 
 <!-- Google Analytics Script -->
-<script async src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`}></script>
+<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', '${analyticsId}');
+  gtag('config', '${GA_ID}');
 </script>

@@ -14,7 +14,6 @@ import Favicon from "./Favicon.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
-const analyticsId = 'G-036834H7Q5';
 
 export interface Props {
   title: string;
@@ -41,7 +40,7 @@ const formattedDate = new Date(date).toLocaleDateString("en-us", {
     <GoogleFont />
     <ThemeScript />
     <FontAwesome />
-    <GoogleAnalytics id={analyticsId} />
+    <GoogleAnalytics />
   </head>
 
   <body
