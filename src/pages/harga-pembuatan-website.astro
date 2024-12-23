@@ -1,0 +1,269 @@
+---
+import { readAll } from "../lib/markdoc/read";
+import { blog } from "../lib/markdoc/frontmatter.schema";
+import PageLayout from "../layouts/PageLayout.astro";
+import PageMeta from "../components/PageMeta.astro";
+import { SITE_TITLE } from "../config";
+
+const posts = await readAll({
+  directory: "blog",
+  frontmatterSchema: blog,
+});
+
+const sortedPosts = posts
+  .filter((p) => p.frontmatter.draft !== true)
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).valueOf() -
+      new Date(a.frontmatter.date).valueOf()
+  );
+---
+
+<PageLayout>
+  <PageMeta title={`Harga Pembuata Website | ${SITE_TITLE}`} slot="meta" />
+  <section slot="main">
+    <section class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 py-24">
+        <div class="absolute inset-0 bg-[url('/api/placeholder/1920/400')] opacity-10 bg-cover bg-center"></div>
+        <div class="container mx-auto px-4 relative">
+            <div class="max-w-3xl mx-auto text-center">
+                <span class="text-blue-300 font-medium mb-4 block">INVESTASI UNTUK BISNIS ANDA</span>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Pilih Paket Website Sesuai Kebutuhan Anda</h1>
+                <p class="text-blue-100 text-lg mb-8">Dapatkan website profesional dengan teknologi terkini dan performa optimal untuk mengembangkan bisnis Anda ke level berikutnya</p>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 -mt-10">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg transform hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Performa Optimal</h3>
+                    <p class="text-gray-600">Website super cepat dengan teknologi modern menggunakan Astro framework</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg transform hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Responsif</h3>
+                    <p class="text-gray-600">Tampilan sempurna di semua perangkat dari mobile hingga desktop</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg transform hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">SEO Friendly</h3>
+                    <p class="text-gray-600">Optimasi SEO terbaik untuk meningkatkan visibility di mesin pencari</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg transform hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Support Premium</h3>
+                    <p class="text-gray-600">Dukungan teknis profesional dan responsif 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Starter Package -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:border-blue-500 transition-all duration-300">
+                    <div class="p-8">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold mb-2">Starter</h3>
+                            <div class="text-gray-500 mb-6">Perfect for small business</div>
+                            <div class="text-4xl font-bold mb-1">Rp 4.999K</div>
+                            <div class="text-gray-500 text-sm mb-6">One-time payment</div>
+                            <a href="#contact" class="block w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">Mulai Sekarang</a>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold mb-4">Includes:</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    5 Halaman Website
+                                </li>
+                                <li class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Domain .com (1 tahun)
+                                </li>
+                                <li class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Hosting Premium
+                                </li>
+                                <li class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    SSL Certificate
+                                </li>
+                                <li class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Mobile Responsive
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Business Package -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-blue-500 transform scale-105">
+                    <div class="bg-blue-500 text-white py-2 text-center text-sm font-semibold">MOST POPULAR</div>
+                    <div class="p-8">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold mb-2">Business</h3>
+                            <div class="text-gray-500 mb-6">Ideal for growing companies</div>
+                            <div class="text-4xl font-bold mb-1">Rp 9.999K</div>
+                            <div class="text-gray-500 text-sm mb-6">One-time payment</div>
+                            <a href="#contact" class="block w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">Mulai Sekarang</a>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold mb-4">Everything in Starter, plus:</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    10 Halaman Website
+                                </li>
+                                <li class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Premium SEO Setup
+                                </li>
+                                <li class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Google Analytics Setup
+                                </li>
+                                <li class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    CMS Integration
+                                </li>
+                                <li class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    6 Bulan Maintenance
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Enterprise Package -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:border-blue-500 transition-all duration-300">
+                    <div class="p-8">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                            <div class="text-gray-500 mb-6">For large scale business</div>
+                            <div class="text-4xl font-bold mb-1">Custom</div>
+                            <div class="text-gray-500 text-sm mb-6">Contact for pricing</div>
+                            <a href="#contact" class="block w-full bg-gray-900 text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition duration-300">Hubungi Kami</a>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold mb-4">Everything in Business, plus:</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-center text-gray-600">
+                                    <li class="flex items-center text-gray-600">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Unlimited Pages
+                                    </li>
+                                    <li class="flex items-center text-gray-600">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Custom Web Application
+                                    </li>
+                                    <li class="flex items-center text-gray-600">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Advanced Security Features
+                                    </li>
+                                    <li class="flex items-center text-gray-600">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Priority Support 24/7
+                                    </li>
+                                    <li class="flex items-center text-gray-600">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        1 Tahun Maintenance
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+                <div class="space-y-6">
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <h3 class="text-lg font-semibold mb-3">Berapa lama proses pembuatan website?</h3>
+                        <p class="text-gray-600">Waktu pengerjaan website bervariasi tergantung kompleksitas proyek. Untuk paket Starter, umumnya membutuhkan waktu 1-2 minggu. Paket Business 2-4 minggu, sedangkan Enterprise akan disesuaikan dengan kebutuhan spesifik Anda.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <h3 class="text-lg font-semibold mb-3">Apakah saya bisa mengubah konten website sendiri?</h3>
+                        <p class="text-gray-600">Ya, kami menyediakan CMS (Content Management System) yang user-friendly sehingga Anda dapat dengan mudah mengupdate konten website tanpa keahlian teknis khusus.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <h3 class="text-lg font-semibold mb-3">Bagaimana dengan keamanan website?</h3>
+                        <p class="text-gray-600">Semua website dilengkapi dengan SSL Certificate dan sistem keamanan standar. Untuk kebutuhan keamanan khusus, tersedia di paket Enterprise dengan fitur keamanan yang lebih advanced.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 relative">
+        <div class="absolute inset-0 bg-[url('/api/placeholder/1920/400')] opacity-10 bg-cover bg-center"></div>
+        <div class="container mx-auto px-4 relative">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Siap Memulai Project Website Anda?</h2>
+                <p class="text-blue-100 text-lg mb-8">Konsultasikan kebutuhan website Anda dengan tim kami dan dapatkan solusi terbaik untuk bisnis Anda</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition duration-300">Mulai Konsultasi</a>
+                    <a href="#portfolio" class="inline-block bg-transparent text-white border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">Lihat Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+  </section>
+</PageLayout>
